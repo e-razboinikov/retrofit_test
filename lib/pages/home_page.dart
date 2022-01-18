@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:retrofit_test/bloc/posts_cubit.dart';
+
+import '../bloc/posts_cubit.dart';
 
 part '../widgets/action_buttons.dart';
+
 part '../widgets/posts_list.dart';
 
 class HomePage extends StatelessWidget {

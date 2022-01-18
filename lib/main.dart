@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import './bloc/posts_cubit.dart';
 import './pages/home_page.dart';
 
 void main() {
