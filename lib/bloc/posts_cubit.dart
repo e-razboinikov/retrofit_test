@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../data/api.dart';
+import '../data/models/post.dart';
 
 part './posts_state.dart';
 
