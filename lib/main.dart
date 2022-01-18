@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import './bloc/posts_cubit.dart';
 import './pages/home_page.dart';
 
 void main() {
@@ -13,13 +15,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Retrofit Test',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
+    return BlocProvider(
+      create: (_) => PostsCubit(
+        PostsEmptyState(),
       ),
-      home: const HomePage(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Retrofit Test',
+        theme: ThemeData(
+          primarySwatch: Colors.green,
+        ),
+        home: const HomePage(),
+      ),
     );
   }
 }
