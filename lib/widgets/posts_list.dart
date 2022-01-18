@@ -30,16 +30,16 @@ class PostsList extends StatelessWidget {
             itemCount: state.posts.length,
             itemBuilder: (ctx, index) {
               return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Card(
-                  elevation: 2.0,
+                  elevation: 5.0,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          state.posts[index].title,
+                          state.posts[index].title.toUpperCase(),
                           style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
