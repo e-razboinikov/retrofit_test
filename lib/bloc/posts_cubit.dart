@@ -8,7 +8,7 @@ part './posts_state.dart';
 class PostsCubit extends Cubit<PostsState> {
   PostsCubit(PostsState initialState) : super(PostsEmptyState());
 
-  void loading() async {
+  void load() async {
     emit(PostsLoadingState());
     try {
       final dio = Dio();
@@ -20,5 +20,11 @@ class PostsCubit extends Cubit<PostsState> {
     } catch (_) {
       emit(PostsErrorState());
     }
+  }
+
+  void clear() {
+    emit(
+      PostsEmptyState(),
+    );
   }
 }
