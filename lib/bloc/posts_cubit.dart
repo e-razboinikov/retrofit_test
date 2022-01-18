@@ -6,7 +6,7 @@ import '../data/api.dart';
 part './posts_state.dart';
 
 class PostsCubit extends Cubit<PostsState> {
-  PostsCubit(PostsState initialState) : super(PostsEmptyState());
+  PostsCubit() : super(PostsEmptyState());
 
   void load() async {
     emit(PostsLoadingState());
