@@ -5,16 +5,21 @@ class ActionButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final postsCubit = context.read<PostsCubit>();
     return Row(
       children: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            postsCubit.load();
+          },
           icon: const Icon(
             Icons.download_outlined,
           ),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            postsCubit.clear();
+          },
           icon: const Icon(
             Icons.clear_outlined,
           ),
