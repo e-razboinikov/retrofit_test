@@ -1,16 +1,19 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../data/api.dart';
 import '../data/models/post.dart';
 
 part './posts_state.dart';
 
+part 'posts_cubit.freezed.dart';
+
 class PostsCubit extends Cubit<PostsState> {
-  PostsCubit() : super(PostsEmptyState());
+  PostsCubit() : super(const PostsEmptyState());
 
   void load() async {
-    emit(PostsLoadingState());
+    emit(const PostsLoadingState());
     try {
       final dio = Dio();
       final client = RestClient(dio);
@@ -19,13 +22,13 @@ class PostsCubit extends Cubit<PostsState> {
         PostsLoadedState(posts: posts),
       );
     } catch (_) {
-      emit(PostsErrorState());
+      emit(const PostsErrorState());
     }
   }
 
   void clear() {
     emit(
-      PostsEmptyState(),
+      const PostsEmptyState(),
     );
   }
 }
