@@ -6,89 +6,67 @@ class PostsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PostsCubit, PostsState>(
-      builder: (ctx, state) {
-        if (state is PostsEmptyState) {
-          return const Center(
-            child: Text(
-              'There are no data. Press LOAD button',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          );
-        }
-
-        if (state is PostsLoadingState) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-
-        if (state is PostsLoadedState) {
-          return ListView.builder(
-            itemCount: state.posts.length,
-            itemBuilder: (ctx, index) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Card(
-                  elevation: 5.0,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          state.posts[index].title.toUpperCase(),
-                          style: const TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                        Text(
-                          state.posts[index].body,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontStyle: FontStyle.italic,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              );
-            },
-          );
-        }
-
-        if (state is PostsErrorState) {
-          return const Center(
-            child: Text(
-              'ERROR',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          );
-        }
-
-        return const Center(
+      builder: (context, state) => state.when(
+        empty: () => const Center(
           child: Text(
-            'Default Case',
+            'There are no data. Press LOAD button',
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
             textAlign: TextAlign.center,
           ),
-        );
-      },
+        ),
+        loading: () => const Center(
+          child: CircularProgressIndicator(),
+        ),
+        loaded: (state) => ListView.builder(
+          itemCount: state.length,
+          itemBuilder: (ctx, index) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                elevation: 5.0,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        state[index].title.toUpperCase(),
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 16.0,
+                      ),
+                      Text(
+                        state[index].body,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+        error: () => const Center(
+          child: Text(
+            'ERROR',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
     );
   }
 }

@@ -1,15 +1,13 @@
 part of './posts_cubit.dart';
 
-abstract class PostsState {}
+@freezed
+class PostsState with _$PostsState {
+  const factory PostsState.empty() = PostsEmptyState;
 
-class PostsEmptyState extends PostsState {}
+  const factory PostsState.loading() = PostsLoadingState;
 
-class PostsLoadingState extends PostsState {}
+  const factory PostsState.loaded({required List<Post> posts}) =
+      PostsLoadedState;
 
-class PostsLoadedState extends PostsState {
-  final List posts;
-
-  PostsLoadedState({required this.posts});
+  const factory PostsState.error() = PostsErrorState;
 }
-
-class PostsErrorState extends PostsState {}
