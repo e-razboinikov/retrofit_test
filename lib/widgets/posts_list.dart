@@ -5,7 +5,7 @@ class PostsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PostsCubit, PostsState>(
+    return BlocBuilder<PostsBloc, PostsState>(
       builder: (context, state) => state.when(
         empty: () => const Center(
           child: Text(
