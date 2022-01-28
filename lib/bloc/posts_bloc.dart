@@ -16,10 +16,7 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
   PostsBloc() : super(const PostsEmptyState()) {
     on<PostsEvent>((event, emit) async {
       emitItem = emit;
-      await event.map(
-        getPosts: _getPosts,
-        clearPosts: _clearPosts,
-      );
+      await event.map(getPosts: _getPosts, clearPosts: _clearPosts);
     });
   }
 
@@ -29,15 +26,12 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
       final dio = Dio();
       final client = RestClient(dio);
       final List<Post> posts = await client.getPosts();
-      emitItem(
-        PostsLoadedState(posts: posts),
-      );
+      emitItem(PostsLoadedState(posts: posts));
     } catch (_) {
       emitItem(const PostsErrorState());
     }
   }
 
-  Future<void> _clearPosts(ClearPostsEvent event) async {
-    emitItem(const PostsEmptyState());
-  }
+  Future<void> _clearPosts(ClearPostsEvent event) async =>
+      emitItem(const PostsEmptyState());
 }

@@ -17,9 +17,7 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Posts'),
-          actions: const [
-            ActionButtons(),
-          ],
+          actions: const [ActionButtons()],
         ),
         body: const PostsList(),
       ),
