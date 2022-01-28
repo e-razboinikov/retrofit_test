@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/posts_cubit.dart';
+import '../bloc/posts_bloc.dart';
 
 part '../widgets/action_buttons.dart';
 
@@ -12,14 +12,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<PostsCubit>(
-      create: (_) => PostsCubit(),
+    return BlocProvider<PostsBloc>(
+      create: (_) => PostsBloc(),
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Posts'),
-          actions: const [
-            ActionButtons(),
-          ],
+          actions: const [ActionButtons()],
         ),
         body: const PostsList(),
       ),

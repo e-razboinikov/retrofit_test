@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'posts_cubit.dart';
+part of 'posts_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,6 +13,290 @@ T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
+class _$PostsEventTearOff {
+  const _$PostsEventTearOff();
+
+  GetPostsEvent getPosts() {
+    return const GetPostsEvent();
+  }
+
+  ClearPostsEvent clearPosts() {
+    return const ClearPostsEvent();
+  }
+}
+
+/// @nodoc
+const $PostsEvent = _$PostsEventTearOff();
+
+/// @nodoc
+mixin _$PostsEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getPosts,
+    required TResult Function() clearPosts,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getPosts,
+    TResult Function()? clearPosts,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getPosts,
+    TResult Function()? clearPosts,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetPostsEvent value) getPosts,
+    required TResult Function(ClearPostsEvent value) clearPosts,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetPostsEvent value)? getPosts,
+    TResult Function(ClearPostsEvent value)? clearPosts,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetPostsEvent value)? getPosts,
+    TResult Function(ClearPostsEvent value)? clearPosts,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PostsEventCopyWith<$Res> {
+  factory $PostsEventCopyWith(
+          PostsEvent value, $Res Function(PostsEvent) then) =
+      _$PostsEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$PostsEventCopyWithImpl<$Res> implements $PostsEventCopyWith<$Res> {
+  _$PostsEventCopyWithImpl(this._value, this._then);
+
+  final PostsEvent _value;
+  // ignore: unused_field
+  final $Res Function(PostsEvent) _then;
+}
+
+/// @nodoc
+abstract class $GetPostsEventCopyWith<$Res> {
+  factory $GetPostsEventCopyWith(
+          GetPostsEvent value, $Res Function(GetPostsEvent) then) =
+      _$GetPostsEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$GetPostsEventCopyWithImpl<$Res> extends _$PostsEventCopyWithImpl<$Res>
+    implements $GetPostsEventCopyWith<$Res> {
+  _$GetPostsEventCopyWithImpl(
+      GetPostsEvent _value, $Res Function(GetPostsEvent) _then)
+      : super(_value, (v) => _then(v as GetPostsEvent));
+
+  @override
+  GetPostsEvent get _value => super._value as GetPostsEvent;
+}
+
+/// @nodoc
+
+class _$GetPostsEvent extends GetPostsEvent {
+  const _$GetPostsEvent() : super._();
+
+  @override
+  String toString() {
+    return 'PostsEvent.getPosts()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is GetPostsEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getPosts,
+    required TResult Function() clearPosts,
+  }) {
+    return getPosts();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getPosts,
+    TResult Function()? clearPosts,
+  }) {
+    return getPosts?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getPosts,
+    TResult Function()? clearPosts,
+    required TResult orElse(),
+  }) {
+    if (getPosts != null) {
+      return getPosts();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetPostsEvent value) getPosts,
+    required TResult Function(ClearPostsEvent value) clearPosts,
+  }) {
+    return getPosts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetPostsEvent value)? getPosts,
+    TResult Function(ClearPostsEvent value)? clearPosts,
+  }) {
+    return getPosts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetPostsEvent value)? getPosts,
+    TResult Function(ClearPostsEvent value)? clearPosts,
+    required TResult orElse(),
+  }) {
+    if (getPosts != null) {
+      return getPosts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetPostsEvent extends PostsEvent {
+  const factory GetPostsEvent() = _$GetPostsEvent;
+  const GetPostsEvent._() : super._();
+}
+
+/// @nodoc
+abstract class $ClearPostsEventCopyWith<$Res> {
+  factory $ClearPostsEventCopyWith(
+          ClearPostsEvent value, $Res Function(ClearPostsEvent) then) =
+      _$ClearPostsEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ClearPostsEventCopyWithImpl<$Res> extends _$PostsEventCopyWithImpl<$Res>
+    implements $ClearPostsEventCopyWith<$Res> {
+  _$ClearPostsEventCopyWithImpl(
+      ClearPostsEvent _value, $Res Function(ClearPostsEvent) _then)
+      : super(_value, (v) => _then(v as ClearPostsEvent));
+
+  @override
+  ClearPostsEvent get _value => super._value as ClearPostsEvent;
+}
+
+/// @nodoc
+
+class _$ClearPostsEvent extends ClearPostsEvent {
+  const _$ClearPostsEvent() : super._();
+
+  @override
+  String toString() {
+    return 'PostsEvent.clearPosts()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ClearPostsEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getPosts,
+    required TResult Function() clearPosts,
+  }) {
+    return clearPosts();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getPosts,
+    TResult Function()? clearPosts,
+  }) {
+    return clearPosts?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getPosts,
+    TResult Function()? clearPosts,
+    required TResult orElse(),
+  }) {
+    if (clearPosts != null) {
+      return clearPosts();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetPostsEvent value) getPosts,
+    required TResult Function(ClearPostsEvent value) clearPosts,
+  }) {
+    return clearPosts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetPostsEvent value)? getPosts,
+    TResult Function(ClearPostsEvent value)? clearPosts,
+  }) {
+    return clearPosts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetPostsEvent value)? getPosts,
+    TResult Function(ClearPostsEvent value)? clearPosts,
+    required TResult orElse(),
+  }) {
+    if (clearPosts != null) {
+      return clearPosts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ClearPostsEvent extends PostsEvent {
+  const factory ClearPostsEvent() = _$ClearPostsEvent;
+  const ClearPostsEvent._() : super._();
+}
 
 /// @nodoc
 class _$PostsStateTearOff {
